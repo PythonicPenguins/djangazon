@@ -4,10 +4,6 @@ from django.db import models
 from datetime import date
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 class Product(models.Model):
     """Products within the Bangazon application are represented by this model.
 
@@ -28,6 +24,12 @@ class Product(models.Model):
 
 <<<<<<< HEAD
 class PaymentType(models.Model):
+    """PaymentTypes within the Bangazon application are represented by this model.
+
+    Author: Meg Ducharme
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
     user = models.ForeignKey(
         User,
         on_delete = models.DO_NOTHING,
@@ -37,6 +39,12 @@ class PaymentType(models.Model):
 
 
 class Order(models.Model):
+    """Orders within the Bangazon application are represented by this model.
+
+    Author: Meg Ducharme
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
     customer = models.ForeignKey(
         User,
         on_delete = models.DO_NOTHING,
@@ -49,6 +57,12 @@ class Order(models.Model):
 
 
 class OrderProduct(models.Model):
+    """Products on Orders within the Bangazon application are represented by this model.
+
+    Author: Meg Ducharme
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
     order = models.ForeignKey(
         Order,
         on_delete = models.DO_NOTHING,
@@ -57,7 +71,8 @@ class OrderProduct(models.Model):
         Product,
         on_delete = models.DO_NOTHING,
     )
-=======
+
+
 class Category(models.Model):
     """Categories within the Bangazon application are represented by this model.
 
@@ -76,4 +91,4 @@ class Category(models.Model):
         Return: A readeble representation of the object
         """
         return self.name
->>>>>>> master
+

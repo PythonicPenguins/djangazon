@@ -100,12 +100,15 @@ def sell_product(request):
     elif request.method == 'POST':
         form_data = request.POST
 
+        c = Category.objects.get(pk=form_data['category'])
+
         p = Product(
             seller = request.user,
             title = form_data['title'],
             description = form_data['description'],
             price = form_data['price'],
             quantity = form_data['quantity'],
+            category = c,
         )
         p.save()
         template_name = 'product/success.html'
