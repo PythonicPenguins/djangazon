@@ -1,8 +1,13 @@
 """Models for the Bangazon application."""
 from django.contrib.auth.models import User
 from django.db import models
+from datetime import date
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 class Product(models.Model):
     """Products within the Bangazon application are represented by this model.
 
@@ -13,7 +18,7 @@ class Product(models.Model):
 
     seller = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
+        on_delete=models.DO_NOTHING,
     )
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
@@ -21,6 +26,38 @@ class Product(models.Model):
     quantity = models.IntegerField()
 
 
+<<<<<<< HEAD
+class PaymentType(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete = models.DO_NOTHING,
+    )
+    name = models.CharField(max_length=55)
+    account_number = models.CharField(max_length=16)
+
+
+class Order(models.Model):
+    customer = models.ForeignKey(
+        User,
+        on_delete = models.DO_NOTHING,
+    )
+    payment_type = models.ForeignKey(
+        PaymentType,
+        on_delete = models.DO_NOTHING,
+    )
+    date_created = date.today()
+
+
+class OrderProduct(models.Model):
+    order = models.ForeignKey(
+        Order,
+        on_delete = models.DO_NOTHING,
+    )
+    product = models.ForeignKey(
+        Product,
+        on_delete = models.DO_NOTHING,
+    )
+=======
 class Category(models.Model):
     """Categories within the Bangazon application are represented by this model.
 
@@ -39,3 +76,4 @@ class Category(models.Model):
         Return: A readeble representation of the object
         """
         return self.name
+>>>>>>> master

@@ -111,6 +111,7 @@ def sell_product(request):
         template_name = 'product/success.html'
         return render(request, template_name, {})
 
+
 def list_products(request):
     all_products = Product.objects.all()
     template_name = 'product/list.html'
