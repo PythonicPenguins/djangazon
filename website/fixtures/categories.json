@@ -1,0 +1,32 @@
+[
+  {
+    "model": "website.category",
+    "fields": {
+      "name": "Home Goods"
+    }
+  },
+  {
+    "model": "website.category",
+    "fields": {
+      "name": "Electronics"
+    }
+  },
+  {
+    "model": "website.category",
+    "fields": {
+      "name": "Clothing"
+    }
+  },
+  {
+    "model": "website.category",
+    "fields": {
+      "name": "Office Supplies"
+    }
+  },
+  {
+    "model": "website.category",
+    "fields": {
+      "name": "Pet Supplies"
+    }
+  }
+]
