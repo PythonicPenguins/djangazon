@@ -4,6 +4,20 @@ from django.db import models
 from datetime import date
 
 
+class Category(models.Model):
+    """Categories within the Bangazon application are represented by this model.
+
+    Author: Gilberto Diaz
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     """Products within the Bangazon application are represented by this model.
 
@@ -16,10 +30,15 @@ class Product(models.Model):
         User,
         on_delete=models.DO_NOTHING,
     )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.DO_NOTHING,
+    )
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     price = models.IntegerField()
     quantity = models.IntegerField()
+
 
 
 class PaymentType(models.Model):
@@ -72,24 +91,3 @@ class OrderProduct(models.Model):
         Product,
         on_delete=models.DO_NOTHING,
     )
-
-
-class Category(models.Model):
-    """Categories within the Bangazon application are represented by this model.
-
-    Author: Gilberto Diaz
-    Args: Extends the models.Model Django class
-    Return: N/A
-    """
-
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        """Appliying __str__ to the name feature of the Category model.
-
-        Author: Gilberto Diaz
-        Args: Extends the models.Model Django class
-        Return: A readeble representation of the object
-        """
-        return self.name
-
