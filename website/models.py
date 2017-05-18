@@ -22,7 +22,6 @@ class Product(models.Model):
     quantity = models.IntegerField()
 
 
-<<<<<<< HEAD
 class PaymentType(models.Model):
     """PaymentTypes within the Bangazon application are represented by this model.
 
@@ -30,34 +29,36 @@ class PaymentType(models.Model):
     Args: Extends the models.Model Django class
     Return: N/A
     """
+
     user = models.ForeignKey(
         User,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     name = models.CharField(max_length=55)
     account_number = models.CharField(max_length=16)
 
 
 class Order(models.Model):
-    """Orders within the Bangazon application are represented by this model.
+    """Order within the Bangazon application are represented by this model.
 
     Author: Meg Ducharme
     Args: Extends the models.Model Django class
     Return: N/A
     """
+
     customer = models.ForeignKey(
         User,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     payment_type = models.ForeignKey(
         PaymentType,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     date_created = date.today()
 
 
 class OrderProduct(models.Model):
-    """Products on Orders within the Bangazon application are represented by this model.
+    """OrderProduct within the Bangazon application are represented by this model.
 
     Author: Meg Ducharme
     Args: Extends the models.Model Django class
@@ -65,11 +66,11 @@ class OrderProduct(models.Model):
     """
     order = models.ForeignKey(
         Order,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     product = models.ForeignKey(
         Product,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
 
 
