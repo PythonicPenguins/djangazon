@@ -4,10 +4,6 @@ from django.db import models
 from datetime import date
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 class Product(models.Model):
     """Products within the Bangazon application are represented by this model.
 
@@ -26,38 +22,59 @@ class Product(models.Model):
     quantity = models.IntegerField()
 
 
-<<<<<<< HEAD
 class PaymentType(models.Model):
+    """PaymentType within the Bangazon application are represented by this model.
+
+    Author: Meg Ducharme
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
+
     user = models.ForeignKey(
         User,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     name = models.CharField(max_length=55)
     account_number = models.CharField(max_length=16)
 
 
 class Order(models.Model):
+    """Order within the Bangazon application are represented by this model.
+
+    Author: Meg Ducharme
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
+
     customer = models.ForeignKey(
         User,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     payment_type = models.ForeignKey(
         PaymentType,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     date_created = date.today()
 
 
 class OrderProduct(models.Model):
+    """OrderProduct within the Bangazon application are represented by this model.
+
+    Author: Meg Ducharme
+    Args: Extends the models.Model Django class
+    Return: N/A
+    """
+
     order = models.ForeignKey(
         Order,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
     product = models.ForeignKey(
         Product,
-        on_delete = models.DO_NOTHING,
+        on_delete=models.DO_NOTHING,
     )
-=======
+
+
 class Category(models.Model):
     """Categories within the Bangazon application are represented by this model.
 
@@ -76,4 +93,3 @@ class Category(models.Model):
         Return: A readeble representation of the object
         """
         return self.name
->>>>>>> master
