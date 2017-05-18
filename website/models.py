@@ -23,7 +23,7 @@ class Product(models.Model):
 
 
 class PaymentType(models.Model):
-    """PaymentType within the Bangazon application are represented by this model.
+    """PaymentTypes within the Bangazon application are represented by this model.
 
     Author: Meg Ducharme
     Args: Extends the models.Model Django class
@@ -64,7 +64,6 @@ class OrderProduct(models.Model):
     Args: Extends the models.Model Django class
     Return: N/A
     """
-
     order = models.ForeignKey(
         Order,
         on_delete=models.DO_NOTHING,
@@ -93,3 +92,4 @@ class Category(models.Model):
         Return: A readeble representation of the object
         """
         return self.name
+
